@@ -21,6 +21,13 @@ const fonts = [
     'Book Antiqu',
 ];
 
+const weigths = [
+    'bold',
+    'bolder',
+    'lighter',
+    'normal',
+]
+
 function getRandomItem(list) {
     const randomIndex = Math.floor(Math.random() * list.length);
     return list[randomIndex];
@@ -39,7 +46,7 @@ function initFancyName(str) {
 function replaceFontsInName() {
     const s = document.querySelector('h1').childNodes;
     for (let i = 0; i < s.length; i++) {
-        // s[i].style.color = 'blue';
+        s[i].style.fontWeight = getRandomItem(weigths);
         s[i].style.fontFamily = getRandomItem(fonts);
     };
 }
