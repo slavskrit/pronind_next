@@ -9,37 +9,68 @@ body {
 }
 
 .universe {
-  border: 2px solid white;
+  border: 4px solid white;
   border-radius: 50%;
   width: 400px;
   height: 400px;
 }
 
-.planet-a {
-  background-color: yellow;
-}
-.planet-b {
-  background-color: yellow;
-}
-.planet-c {
-  background-color: yellow;
-}
-.planet-d {
-  background-color: yellow;
-}
+.planet-a,
+.planet-b,
+.planet-c,
+.planet-d,
 .planet-e {
-  background-color: yellow;
+  background-color: white;
+  border: 4px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: relative;
 }
 
-.b {
+.planet-a {
+  left: 77px;
+}
+.planet-b {
+  left: 372px;
+  top: 100px;
+}
+.planet-c {
+  left: -20px;
+  top: 120px;
+}
+.planet-d {
+  left: 100px;
+}
+.planet-e {
+  left: 100px;
+}
+
+.subverse-a,
+.subverse-b,
+.subverse-c,
+.subverse-d,
+.subverse-e {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  position: fixed;
+}
+
+.subverse-a {
+  left: 10px;
+  top: 10px;
+}
+.subverse-b {
   background-color: yellow;
 }
-.c {
+.subverse-c {
   background-color: yellow;
 }
-.d {
+.subverse-d {
   background-color: yellow;
 }
-.r {
+.subverse-r {
   background-color: yellow;
 }
