@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  margin: 0;
+}
+
+.universe {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+.planet-a {
+  background-color: yellow;
+}
+.planet-b {
+  background-color: yellow;
+}
+.planet-c {
+  background-color: yellow;
+}
+.planet-d {
+  background-color: yellow;
+}
+.planet-e {
+  background-color: yellow;
+}
+
+.b {
+  background-color: yellow;
+}
+.c {
+  background-color: yellow;
+}
+.d {
+  background-color: yellow;
+}
+.r {
+  background-color: yellow;
+}
