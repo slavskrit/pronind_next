@@ -21,6 +21,7 @@
   </body>
 
   <style>
+    /* Base styling */
     * {
       font-family: "Courier New", Courier, monospace;
     }
@@ -34,7 +35,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
     }
 
     .content {
@@ -49,19 +49,49 @@
 
     h1 {
       margin-bottom: 20px;
-      font-size: 4rem;
+      font-size: 3rem;
     }
 
     img {
       max-width: 100%;
-      max-height: 70vh; /* Ensures the SVG does not overflow the viewport height */
+      max-height: 70vh;
       width: auto;
       height: auto;
     }
 
     @media (max-width: 768px) {
       img {
-        max-height: 50vh; /* Adjust the image size for smaller screens */
+        max-height: 50vh;
+      }
+    }
+
+    /* Light mode (default) */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg-color: #4b4b4b;
+        --text-color: #e79b00;
+      }
+
+      img {
+        filter: invert(1);
+        /* or to blue */
+        filter: invert(0.5) sepia(1) saturate(6) hue-rotate(12deg);
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
       }
     }
   </style>
