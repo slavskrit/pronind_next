@@ -5,23 +5,15 @@
     <title>Dmitry Pronin</title>
     <base href="" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <!-- Meta description -->
     <meta
       name="description"
       content="Welcome to the official website of Dmitry Pronin. Explore creative projects and more."
     />
-
-    <!-- Favicon links -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-
-    <!-- Theme color -->
     <meta name="theme-color" content="#ffffff" />
-
-    <!-- Open Graph meta tags for rich previews -->
     <meta property="og:title" content="Dmitry Pronin" />
     <meta
       property="og:description"
@@ -29,15 +21,13 @@
     />
     <meta
       property="og:image"
-      content="https:/pronind.com/apple-touch-icon.png"
+      content="https://pronind.com/apple-touch-icon.png"
     />
     <meta property="og:url" content="https://pronind.com" />
     <meta property="og:type" content="website" />
-
-    <!-- Twitter Card meta tags -->
     <meta
       name="twitter:card"
-      content="https:/pronind.com/apple-touch-icon.png"
+      content="https://pronind.com/apple-touch-icon.png"
     />
     <meta name="twitter:title" content="Dmitry Pronin" />
     <meta
@@ -46,10 +36,8 @@
     />
     <meta
       name="twitter:image"
-      content="https:/pronind.com/apple-touch-icon.png"
+      content="https://pronind.com/apple-touch-icon.png"
     />
-
-    <!-- Meta tags for Telegram and messaging app previews -->
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="telegram:share:url" content="https://pronind.com" />
@@ -58,14 +46,14 @@
   <body>
     <div class="content">
       <h1>Dmitry Pronin</h1>
-      <img src="logo.svg" alt="logo" />
+      <div class="wrapper"></div>
     </div>
   </body>
 
   <style>
-    /* Base styling */
     * {
       font-family: "Courier New", Courier, monospace;
+      box-sizing: border-box;
     }
 
     body,
@@ -90,50 +78,52 @@
     }
 
     h1 {
-      margin-bottom: 20px;
-      font-size: 3rem;
+      margin: 20px;
+      font-size: 2rem;
     }
 
-    img {
-      max-width: 100%;
-      max-height: 70vh;
-      width: auto;
-      height: auto;
+    /* Scalable and animated logo */
+    .wrapper {
+      background: linear-gradient(
+        72deg,
+        #9373dd,
+        #c7eb89,
+        #cdcdcb,
+        #fbaa74,
+        #a3ebf0
+      );
+      background-size: 500% 500%;
+      animation: gradient-animation 25s ease infinite;
+      width: 40vw;
+      height: 40vw;
+      max-width: 720px;
+      max-height: 920px;
+      mask-image: url("logo.svg");
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
     }
 
-    @media (max-width: 768px) {
-      img {
-        max-height: 50vh;
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
       }
     }
 
-    /* Light mode (default) */
     :root {
       --bg-color: #ffffff;
-      --text-color: #000000;
+      --text-color: #4d4d4d;
     }
 
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
-    }
-
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-color: #4b4b4b;
-        --text-color: #e79b00;
-      }
-
-      img {
-        filter: invert(1);
-        filter: invert(0.5) sepia(1) saturate(6) hue-rotate(12deg);
-      }
-
-      body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-      }
     }
   </style>
 </html>
