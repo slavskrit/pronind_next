@@ -10,6 +10,7 @@ on:
       - '**.webp'
 jobs:
   build:
+    # Only run on Pull Requests within the same repository, and not from forks.
     name: calibreapp/image-actions
     permissions: write-all
     runs-on: ubuntu-latest
