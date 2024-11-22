@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List files in the repository
-        run: ls ${{ github.workspace }}/gallery/sources
+        run: |
+           ls ${{ github.workspace }}/gallery/sources
       - name: Create html
-        run: echo "test" > ${{ github.workspace }}/gallery/index.html
+        run: |
+            echo "test" > ${{ github.workspace }}/gallery/index.html
       - run: echo "🍏 This job's status is ${{ job.status }}."
