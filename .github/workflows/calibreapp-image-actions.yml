@@ -18,10 +18,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      - name: Compress Images
-        uses: calibreapp/image-actions@main
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Compress Images
+      #   uses: calibreapp/image-actions@main
+      #   with:
+      #     githubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Image Resizer Action
         uses: sharadcodes/img-resizer@v1.1
         with:
