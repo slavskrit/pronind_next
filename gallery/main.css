@@ -1,42 +1,38 @@
-body {
-  background-color: #000;
-  font: 1.1em Arial, Helvetica, sans-serif;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-figure {
-  margin: 0;
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
-figure > img {
-  grid-row: 1 / -1;
-  grid-column: 1;
-}
-
-figure a {
-  color: black;
-  text-decoration: none;
-}
-
-figcaption {
-  grid-row: 2;
-  grid-column: 1;
-  background-color: rgba(255,255,255,.5);
-  padding: .2em .5em;
-  justify-self: start;
-}
-
+/* Style the container to flex-wrap and center items */
 .container {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: masonry;
-  height: 200vh;
-  align-tracks: end ;
+  justify-content: center;
+}
+
+/* Style each figure to ensure responsiveness */
+figure {
+  position: relative;
+  width: 100%; /* Default to full width */
+  max-width: 400px; /* Limit max width for larger screens */
+  aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 8px; /* Optional rounded corners */
+}
+
+/* Hide img tags (we use background images) */
+figure img {
+  display: none;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  figure {
+    width: calc(33.33% - 10px); /* Three figures per row with gaps */
+  }
+}
+
+@media (min-width: 1024px) {
+  figure {
+    width: calc(25% - 10px); /* Four figures per row with gaps */
+  }
 }
