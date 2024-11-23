@@ -30,6 +30,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install imagemagick
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick webp
       - name: Generate HTML Gallery
         run: |
           chmod +x ./generate_gallery.sh
