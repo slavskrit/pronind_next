@@ -37,7 +37,7 @@ jobs:
       - name: Generate HTML Gallery
         run: |
           chmod +x ./generate_gallery.sh
-          ./generate_gallery.sh gallery/sources gallery/index.html
+          ./generate_gallery.sh gallery/sources gallery/optimized gallery/index.html
       # - name: Push to github
       #   run: |
       #     git config user.name github-actions
