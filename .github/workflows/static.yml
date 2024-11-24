@@ -30,21 +30,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install imagemagick
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick webp
+      # - name: Install imagemagick
+        # run: |
+          # sudo apt-get update
+          # sudo apt-get install -y imagemagick webp
       - name: Generate HTML Gallery
         run: |
           chmod +x ./generate_gallery.sh
           ./generate_gallery.sh gallery/sources gallery/index.html
-      - name: Push to github
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "generated"
-          git push
+      # - name: Push to github
+      #   run: |
+      #     git config user.name github-actions
+      #     git config user.email github-actions@github.com
+      #     git add .
+      #     git commit -m "generated"
+      #     git push
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Minify Css Js and Html files in GitHub Action        
