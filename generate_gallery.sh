@@ -43,7 +43,7 @@ if [ -d "$IMAGE_DIR" ]; then
 
       # Convert to WebP and resize
       echo "Processing $img..."
-      magick "$img" -resize 300x300 -quality 80 "$small_img" # Small image
+      magick "$img" -resize 200x200 -quality 80 "$small_img" # Small image
       magick "$img" -resize 1200x1200\> -quality 90 "$full_img" # Full image
 
       # Adjust paths to be relative to the `gallery` directory
@@ -52,9 +52,7 @@ if [ -d "$IMAGE_DIR" ]; then
 
       # Append image and caption to the HTML
       cat <<EOF >> "$OUTPUT_FILE"
-      <figure style="background-image: url('$small_img_path');">
-        <img src="$small_img_path" />
-      </figure>
+      <div><img src="$small_img_path"/></div>
 EOF
       ((count++))
     fi
