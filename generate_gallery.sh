@@ -43,7 +43,7 @@ if [ -d "$IMAGE_DIR" ]; then
 
       # Convert to WebP and resize
       echo "Processing $img..."
-      convert "$img" -resize 200x200 -quality 80 "$small_img" # Small image
+      convert "$img" -resize 400x400 -quality 80 "$small_img" # Small image
       convert "$img" -resize 1200x1200\> -quality 90 "$full_img" # Full image
 
       # Adjust paths to be relative to the `gallery` directory
@@ -52,7 +52,7 @@ if [ -d "$IMAGE_DIR" ]; then
 
       # Append image and caption to the HTML
       cat <<EOF >> "$OUTPUT_FILE"
-      <div><img src="$small_img_path"/></div>
+      <div><img src="$small_img_path" loading="lazy"/></div>
 EOF
       ((count++))
     fi
