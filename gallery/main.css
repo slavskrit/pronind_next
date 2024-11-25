@@ -7,7 +7,7 @@ body {
     display: grid;
     grid-gap: 0 4px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: repeat(2, 200px);
+    grid-template-rows: masonry;
 }
 
 .container > div > img {
