@@ -3,12 +3,23 @@ body {
   background-color: black;
 }
 
-.container {
-    display: grid;
-    grid-gap: 0 4px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: masonry;
+@supports (tgrid-template-rows: masonry) {
+  .container {
+      display: grid;
+      grid-gap: 0 4px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-rows: masonry;
+  }
 }
+
+@supports not (tgrid-template-rows: masonry) {
+  .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );
+      grid-gap: 4px;
+  }
+}
+
 
 .container > div > img {
     width: 100%;
