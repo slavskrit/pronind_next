@@ -52,7 +52,7 @@ if [ -d "$IMAGE_DIR" ]; then
 
       # Append image and caption to the HTML
       cat <<EOF >> "$OUTPUT_FILE"
-      <div><img src="$small_img_path" loading="lazy"/></div>
+      <a href="$full_img_path"><img src="$small_img_path" loading="lazy"/></a>
 EOF
       ((count++))
     fi
