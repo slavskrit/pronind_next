@@ -62,10 +62,11 @@
             <h1>Dmitry Pronin</h1>
             <span>Ever in the wrong place and at the wrong time.</span>
             <div class="wrapper"></div>
-            <div class="links">
+            <nav>
                 <a href="https://www.instagram.com/dproni/">Instagram</a>
                 <a href="https://slavskrit.t.me/">Telegram</a>
-            </div>
+                <a href="/gallery">Photos</a>
+            </nav>
         </div>
     </body>
 
@@ -103,8 +104,7 @@
             font-size: 2rem;
         }
 
-        span,
-        a {
+        span {
             font-size: 1rem;
         }
 
@@ -151,5 +151,17 @@
             --bg-color: #ffffff;
             --text-color: #4d4d4d;
         }
-    </style>
+
+        nav {
+          display: flex;
+          justify-content: center;
+          gap: 1em; 
+          margin-bottom: 1em;
+        }
+
+        nav a {
+          position: relative;
+        }
+
+   </style>
 </html>
