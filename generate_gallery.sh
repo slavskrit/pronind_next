@@ -22,6 +22,7 @@ cat <<EOF >"$OUTPUT_FILE"
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="main.css">
     <title>Gallery</title>
   </head>
