@@ -1,4 +1,4 @@
-body {
+body {2
   margin: 1em;
   background-color: black;
 }
@@ -15,8 +15,9 @@ body {
 @supports not (grid-template-rows: masonry) {
   .container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) );
       grid-gap: 4px;
+      grid-template-columns: repeat(auto-fill, minmax(7rem, 2fr));
+      grid-auto-rows: 2fr;
   }
 }
 
