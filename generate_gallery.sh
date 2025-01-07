@@ -32,8 +32,6 @@ EOF
 
 # Process each image in the directory
 if [ -d "$IMAGE_DIR" ]; then
-
-  if [ -d "$IMAGE_DIR" ]; then
   count=1
 
   # Get the list of images and shuffle it
