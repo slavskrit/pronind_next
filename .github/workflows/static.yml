@@ -39,7 +39,7 @@ jobs:
         with: 
           name: uploader
           path: |
-            '.'
+            gallery
             !gallery/sources
       - name: Deploy to GitHub Pages
         id: deployment
