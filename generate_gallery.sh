@@ -35,7 +35,7 @@ if [ -d "$IMAGE_DIR" ]; then
   count=1
 
   # Get the list of images and shuffle it
-  images=($(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | shuf))
+  images=($(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | sort -R))
 
   for img in "${images[@]}"; do
     if [ -f "$img" ]; then
