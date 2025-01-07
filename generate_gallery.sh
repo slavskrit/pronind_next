@@ -32,8 +32,14 @@ EOF
 
 # Process each image in the directory
 if [ -d "$IMAGE_DIR" ]; then
+
+  if [ -d "$IMAGE_DIR" ]; then
   count=1
-  for img in "$IMAGE_DIR"/*.{jpg,jpeg,png,gif}; do
+
+  # Get the list of images and shuffle it
+  images=($(find "$IMAGE_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) | shuf))
+
+  for img in "${images[@]}"; do
     if [ -f "$img" ]; then
       # Get the base name without extension
       base_name=$(basename "$img" | sed 's/\.[^.]*$//')
