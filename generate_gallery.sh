@@ -42,10 +42,15 @@ if [ -d "$IMAGE_DIR" ]; then
       small_img="${OUTPUT_DIR}/${base_name}_small.webp"
       full_img="${OUTPUT_DIR}/${base_name}_full.webp"
 
-      # Convert to WebP and resize
-      echo "Processing $img..."
-      convert "$img" -resize 400x400 -quality 80 "$small_img"    # Small image
-      convert "$img" -resize 1200x1200\> -quality 90 "$full_img" # Full image
+      # Check if the images already exist
+      if [ -f "$small_img" ] && [ -f "$full_img" ]; then
+        echo "Skipping $img (already optimized)..."
+      else
+        # Convert to WebP and resize
+        echo "Processing $img..."
+        magick convert "$img" -resize 400x400 -quality 80 "$small_img"    # Small image
+        magick convert "$img" -resize 1200x1200\> -quality 90 "$full_img" # Full image
+      fi
 
       # Adjust paths to be relative to the `gallery` directory
       small_img_path="optimized/${base_name}_small.webp"
