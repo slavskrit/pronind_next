@@ -36,9 +36,11 @@ jobs:
         uses: amireshoon/minifyAction@v1.1
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-        with:
+        with: 
           # Upload entire repository
-          path: '.'
+          path: |
+            '.'
+            !gallery/sources
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
