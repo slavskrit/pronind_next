@@ -35,7 +35,7 @@ jobs:
       - name: Minify Css Js and Html files in GitHub Action        
         uses: amireshoon/minifyAction@v1.1
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: '.'
