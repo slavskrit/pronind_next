@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>flwr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            * {
+                font-family: "Courier New", Courier, monospace;
+                box-sizing: border-box;
+            }
+
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+
+            #canvas-container {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            canvas {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            #loading {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 15;
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .ui {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 20;
+                pointer-events: none;
+                user-select: none;
+            }
+
+            .ui h1 {
+                margin: 0 0 0.5rem 0;
+                font-size: 1rem;
+                font-weight: normal;
+                color: #fff;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+            }
+
+            .ui .hint {
+                font-size: 0.75rem;
+                color: #aaa;
+                text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+                line-height: 1.4;
+            }
+
+            #error {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 25;
+                color: #ff7777;
+                background: rgba(0,0,0,0.8);
+                padding: 1rem;
+                max-width: 80vw;
+                word-break: break-word;
+                display: none;
+            }
+        </style>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+                    "@mkkellogg/gaussian-splats-3d": "https://cdn.jsdelivr.net/npm/@mkkellogg/gaussian-splats-3d@0.4.7/build/gaussian-splats-3d.module.min.js"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="canvas-container">
+            <div class="ui">
+                <h1>flwr</h1>
+                <div class="hint">
+                    drag &nbsp;→&nbsp; rotate<br>
+                    scroll &nbsp;→&nbsp; zoom<br>
+                    shift+drag &nbsp;→&nbsp; pan
+                </div>
+            </div>
+            <div id="loading">Loading…</div>
+            <div id="error"></div>
+        </div>
+
+        <script type="module">
+            import * as GaussianSplats3D from "@mkkellogg/gaussian-splats-3d";
+
+            const container = document.getElementById("canvas-container");
+            const loading = document.getElementById("loading");
+            const errorDiv = document.getElementById("error");
+
+            function showError(msg) {
+                loading.style.display = "none";
+                errorDiv.style.display = "block";
+                errorDiv.textContent = msg;
+            }
+
+            try {
+                const viewer = new GaussianSplats3D.Viewer({
+                    rootElement: container,
+                    cameraUp: [0, -1, -0.6],
+                    initialCameraPosition: [-1, -1, 1],
+                    initialCameraLookAt: [0, 0, 0],
+                });
+
+                viewer
+                    .addSplatScene("flwr.ply", {
+                        showLoadingUI: false,
+                    })
+                    .then(() => {
+                        loading.style.display = "none";
+                        viewer.start();
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        showError("Failed to load scene: " + (err.message || err));
+                    });
+            } catch (err) {
+                console.error(err);
+                showError("Viewer error: " + (err.message || err));
+            }
+        </script>
+    </body>
+</html>
